@@ -1,2 +1,2 @@
-from flask import Flask
+#!/usr/bin/python3
 """Empty module"""
