@@ -52,7 +52,7 @@ def display_n(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def display_template(n):
+def display_number_template(n):
     """
     display a template web page
     with a html format
