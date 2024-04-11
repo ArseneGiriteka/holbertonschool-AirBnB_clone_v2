@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-from flask import Flask
 """
 New Module
 that print a simple message
 """
 
+
+from flask import Flask
 
 """Creating new app"""
 app = Flask(__name__)
