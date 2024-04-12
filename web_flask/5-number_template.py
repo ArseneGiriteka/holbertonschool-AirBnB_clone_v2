@@ -52,10 +52,9 @@ def display_n(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def display_number_template(n):
+def number_template(n):
     """
-    display a template web page
-    with a html format
+    This function displays a HTML page with 'Number: n' if n is an integer.
     """
     return render_template('5-number.html', n=n)
 
