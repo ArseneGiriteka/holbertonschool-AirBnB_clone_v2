@@ -7,7 +7,7 @@ This module takes cares of three routes
 from flask import Flask
 from markupsafe import escape
 from flask import render_template
-app = Flask('__name__')
+app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
