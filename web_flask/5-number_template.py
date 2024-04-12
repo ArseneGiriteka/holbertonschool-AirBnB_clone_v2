@@ -55,6 +55,8 @@ def display_n(n):
 def number_template(n):
     """
     This function displays a HTML page with 'Number: n' if n is an integer.
+    this function go in the given template and write an integer
+    it returns the template
     """
     return render_template('5-number.html', n=n)
 
