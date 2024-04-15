@@ -4,8 +4,8 @@ from .test_file_storage import test_fileStorage
 
 
 class test_dbStorage(test_fileStorage):
-	""" Class to test the file storage method """
+    """ Class to test the file storage method """
 
-	def setUp(self):
-		""" Set up test environment """
-		pass
+    def setUp(self):
+        """ Set up test environment """
+        pass
