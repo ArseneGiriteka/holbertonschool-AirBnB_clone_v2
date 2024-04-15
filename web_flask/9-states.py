@@ -21,6 +21,7 @@ def states_list():
 def states_id(id):
     """Displays an HTML page with a list of all States and Cities objects"""
     states = storage.all(State).values()
+    states = sorted(states, key=lambda state: state.name)
     for state in states:
         if state.id == id:
             return render_template('9-states.html', state=state)
