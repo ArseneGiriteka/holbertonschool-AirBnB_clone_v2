@@ -23,13 +23,11 @@ def states_list():
 @app.route('/states/<id>')
 def states_id(id):
     """Displays an HTML page with a list of all States and Cities objects"""
-    state = None
-    for st in storage.all(State).values():
-        if st.id == id:
-            st.cities = sorted(st.cities, key=lambda city: city.name)
-            state = st
-            break
-    return render_template('9-states.html', state=state)
+    for state in storage.all(State).values():
+        if state.id == id:
+            state.cities = sorted(state.cities, key=lambda city: city.name)
+            return render_template('9-states.html', state=state)
+    return render_template('9-states.html')
 
 
 @app.teardown_appcontext
