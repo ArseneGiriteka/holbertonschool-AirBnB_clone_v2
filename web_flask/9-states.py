@@ -15,15 +15,17 @@ def states_list():
     """Displays an HTML page with a list of all States objects"""
     states = storage.all(State).values()
     states = sorted(states, key=lambda state: state.name)
+    for state in states:
+        state.cities = sorted(state.cities, key=lambda city: city.name)
     return render_template('9-states.html', states=states)
 
 
 @app.route('/states/<id>')
 def states_id(id):
     """Displays an HTML page with a list of all States and Cities objects"""
-    states = storage.all(State).values()
-    for state in states:
+    for state in storage.all(State).values():
         if state.id == id:
+            state.cities = sorted(state.cities, key=lambda city: city.name)
             return render_template('9-states.html', state=state)
     return render_template('9-states.html')
 
