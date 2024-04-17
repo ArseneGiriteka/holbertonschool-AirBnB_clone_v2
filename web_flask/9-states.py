@@ -24,21 +24,16 @@ def states_list():
 def teardown_db(exception=None):
     """Remove the current SQLAlchemy Session"""
     storage.close()
-
+    
 
 @app.route('/states/<id>')
 def states_id(id):
     """Displays an HTML page with a list of all States and Cities objects"""
-    state = None
-    for st in storage.all(State).values():
-        if st.id == id:
-            state = st
-            break
-    if state is not None:
-        cities = sorted(state.cities, key=lambda city: city.name)
-    else:
-        cities = []
-    return render_template('9-states.html', state=state, cities=cities)
+    for state in storage.all(State).values():
+        if state.id == id:
+            state.cities = sorted(state.cities, key=lambda city: city.name)
+            return render_template('9-states.html', state=state)
+    return render_template('9-states.html')
 
 
 if __name__ == "__main__":
